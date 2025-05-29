@@ -14,6 +14,8 @@ from word_document_server.tools import (
     footnote_tools,
     extended_document_tools,
     template_tools,
+    header_tools,
+    chapter_tools,
 )
 
 
@@ -64,6 +66,11 @@ def register_tools():
     mcp.tool()(template_tools.apply_template)
     mcp.tool()(template_tools.set_page_size)
     mcp.tool()(template_tools.add_section_break)
+    # Header & footer tools (Phase 2)
+    mcp.tool()(header_tools.insert_header)
+    mcp.tool()(header_tools.insert_footer)
+    # Chapter tools (Phase 2)
+    mcp.tool()(chapter_tools.new_chapter)
 
 
 def run_server():

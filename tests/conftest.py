@@ -36,11 +36,17 @@ if 'docx.enum.style' not in sys.modules:
     sys.modules['docx.enum'] = enum_pkg
     sys.modules['docx.enum.style'] = style_mod
 # Stub docx.enum.text for color formatting
+# Stub docx.enum.text for color and alignment formatting
 if 'docx.enum.text' not in sys.modules:
     text_enum = types.ModuleType('docx.enum.text')
     class _DummyColorIndex:
         pass
+    class _DummyAlign:
+        LEFT = 0
+        CENTER = 1
+        RIGHT = 2
     text_enum.WD_COLOR_INDEX = _DummyColorIndex
+    text_enum.WD_ALIGN_PARAGRAPH = _DummyAlign
     sys.modules['docx.enum.text'] = text_enum
 # Stub docx.enum.section for section break types
 if 'docx.enum.section' not in sys.modules:
@@ -62,8 +68,9 @@ if 'docx.oxml.shared' not in sys.modules:
     def qn(tag): return tag
     shared_mod.OxmlElement = OxmlElement
     shared_mod.qn = qn
-    # Provide parse_xml stub on docx.oxml
+    # Provide parse_xml stub on docx.oxml, and stub OxmlElement
     oxml_pkg.parse_xml = lambda xml: None
+    oxml_pkg.OxmlElement = OxmlElement
     sys.modules['docx.oxml'] = oxml_pkg
     sys.modules['docx.oxml.shared'] = shared_mod
 # Stub docx.oxml.ns for namespace declarations
