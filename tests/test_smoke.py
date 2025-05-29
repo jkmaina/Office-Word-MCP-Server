@@ -7,6 +7,7 @@ from word_document_server.tools import (
     protection_tools,
     footnote_tools,
     extended_document_tools,
+    template_tools,
 )
 
 def test_document_tools_has_core_functions():
@@ -34,3 +35,8 @@ def test_footnote_tools_has_core_functions():
 def test_extended_document_tools_has_core_functions():
     assert hasattr(extended_document_tools, 'convert_to_pdf')
     assert hasattr(extended_document_tools, 'find_text_in_document')
+    
+def test_template_tools_has_core_functions():
+    assert hasattr(template_tools, 'apply_template')
+    assert hasattr(template_tools, 'set_page_size')
+    assert hasattr(template_tools, 'add_section_break')

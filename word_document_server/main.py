@@ -12,7 +12,8 @@ from word_document_server.tools import (
     format_tools,
     protection_tools,
     footnote_tools,
-    extended_document_tools
+    extended_document_tools,
+    template_tools,
 )
 
 
@@ -58,6 +59,11 @@ def register_tools():
     mcp.tool()(extended_document_tools.get_paragraph_text_from_document)
     mcp.tool()(extended_document_tools.find_text_in_document)
     mcp.tool()(extended_document_tools.convert_to_pdf)
+    
+    # Template & layout tools (Phase 1)
+    mcp.tool()(template_tools.apply_template)
+    mcp.tool()(template_tools.set_page_size)
+    mcp.tool()(template_tools.add_section_break)
 
 
 def run_server():

@@ -42,6 +42,18 @@ if 'docx.enum.text' not in sys.modules:
         pass
     text_enum.WD_COLOR_INDEX = _DummyColorIndex
     sys.modules['docx.enum.text'] = text_enum
+# Stub docx.enum.section for section break types
+if 'docx.enum.section' not in sys.modules:
+    # Ensure 'docx.enum' package exists
+    enum_pkg = sys.modules.get('docx.enum') or types.ModuleType('docx.enum')
+    sys.modules['docx.enum'] = enum_pkg
+    section_mod = types.ModuleType('docx.enum.section')
+    class _DummySectionStart:
+        NEXT_PAGE = 0
+        EVEN_PAGE = 1
+        ODD_PAGE = 2
+    section_mod.WD_SECTION_START = _DummySectionStart
+    sys.modules['docx.enum.section'] = section_mod
 # Stub docx.oxml.shared for table manipulation
 if 'docx.oxml.shared' not in sys.modules:
     oxml_pkg = types.ModuleType('docx.oxml')
