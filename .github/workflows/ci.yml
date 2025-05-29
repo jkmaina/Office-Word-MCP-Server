@@ -25,4 +25,5 @@ jobs:
       - name: Build distributions
         run: |
           pip install hatch
-          hatch build --sdist --wheel
+          # Build all distributions (wheel + sdist) with Hatch
+          hatch build
