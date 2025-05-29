@@ -2,12 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - 2025-05-29
+### Added
+- Code block insertion tool (Phase 3):
+  - `add_code_block(filename, code_text, language, style)` inserts a monospaced, shaded code block as a one-cell table.
+
 ## [1.4.0] - 2025-05-29
 ### Added
-- Header & footer tools (Phase 2):
+Header & footer tools (Phase 2):
   - `insert_header(filename, text, alignment, fields)` to inject headers with placeholders (e.g. `{pagenum}`).
   - `insert_footer(filename, text, alignment, fields)` to inject footers with placeholders.
-- Chapter tools (Phase 2):
+Chapter tools (Phase 2):
   - `new_chapter(filename, title, style)` auto-numbers chapters by counting existing headings and inserts a section break.
 
 ## [1.3.0] - 2025-05-29

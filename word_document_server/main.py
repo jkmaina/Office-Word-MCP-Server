@@ -16,6 +16,7 @@ from word_document_server.tools import (
     template_tools,
     header_tools,
     chapter_tools,
+    code_tools,
 )
 
 
@@ -71,6 +72,8 @@ def register_tools():
     mcp.tool()(header_tools.insert_footer)
     # Chapter tools (Phase 2)
     mcp.tool()(chapter_tools.new_chapter)
+    # Code block tools (Phase 3)
+    mcp.tool()(code_tools.add_code_block)
 
 
 def run_server():

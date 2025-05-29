@@ -10,6 +10,7 @@ from word_document_server.tools import (
     template_tools,
     header_tools,
     chapter_tools,
+    code_tools,
 )
 
 def test_document_tools_has_core_functions():
@@ -49,3 +50,6 @@ def test_header_tools_has_core_functions():
 
 def test_chapter_tools_has_core_functions():
     assert hasattr(chapter_tools, 'new_chapter')
+    
+def test_code_tools_has_core_functions():
+    assert hasattr(code_tools, 'add_code_block')
