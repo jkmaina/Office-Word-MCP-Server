@@ -218,6 +218,57 @@ format_table(filename, table_index, has_header_row=None,
              border_style=None, shading=None)
 ```
 
+### Template & Layout
+
+```python
+apply_template(template_path, destination_path=None)
+set_page_size(filename, width, height, margins=None)
+add_section_break(filename, break_type='nextPage')
+```
+
+### Header & Footer
+
+```python
+insert_header(filename, text, alignment='center', fields=None)
+insert_footer(filename, text, alignment='center', fields=None)
+```
+
+### Chapters
+
+```python
+new_chapter(filename, title, style='Heading 1')
+```
+
+### Code Block
+
+```python
+add_code_block(filename, code_text, language=None, style='CodeBlock')
+```
+
+### Book Structure (Front/Back Matter)
+
+```python
+add_title_page(filename, title, subtitle=None, author=None, date=None)
+add_copyright_page(filename, text)
+add_front_matter(filename, section, text)
+```
+
+### Navigation & Cross-References
+
+```python
+insert_toc_placeholder(filename, heading_style='TOC Heading')
+bookmark(filename, bookmark_name)
+insert_hyperlink(filename, bookmark_name, display_text)
+```
+
+### Captions & Lists
+
+```python
+insert_caption(filename, object_type, text, style='Caption')
+generate_list_of_figures(filename, heading_style='TOC Heading')
+generate_list_of_tables(filename, heading_style='TOC Heading')
+```
+
 ## Troubleshooting
 
 ### Common Issues
