@@ -269,6 +269,14 @@ generate_list_of_figures(filename, heading_style='TOC Heading')
 generate_list_of_tables(filename, heading_style='TOC Heading')
 ```
 
+### Export & Metadata
+
+```python
+to_epub(filename, output_filename=None, metadata=None, toc=True)
+to_pdf(filename, output_filename=None, pdf_engine='xelatex')
+set_core_properties(filename, title=None, author=None, subject=None, keywords=None)
+```
+
 ## Troubleshooting
 
 ### Common Issues

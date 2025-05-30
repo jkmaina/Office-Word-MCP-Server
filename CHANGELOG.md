@@ -2,12 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.8.0] - 2025-05-29
+### Added
+- Export tools (Phase 6):
+  - `to_epub(filename, output_filename, metadata, toc)` to convert .docx to EPUB via Pandoc.
+  - `to_pdf(filename, output_filename, pdf_engine)` to convert .docx to PDF via Pandoc.
+  - `set_core_properties(filename, title, author, subject, keywords)` to inject document metadata.
+
 ## [1.7.0] - 2025-05-29
 ### Added
-- Cross-reference tools (Phase 5):
+Cross-reference tools (Phase 5):
   - `bookmark(filename, bookmark_name)` to mark a location for hyperlinking.
   - `insert_hyperlink(filename, bookmark_name, display_text)` to add an internal link to a bookmark.
-- Caption & list-generation tools (Phase 5):
+Caption & list-generation tools (Phase 5):
   - `insert_caption(filename, object_type, text, style)` to insert numbered captions for figures/tables.
   - `generate_list_of_figures(filename, heading_style)` to insert a List of Figures field.
   - `generate_list_of_tables(filename, heading_style)` to insert a List of Tables field.

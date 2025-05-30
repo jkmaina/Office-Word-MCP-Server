@@ -14,6 +14,7 @@ from word_document_server.tools import (
     book_tools,
     navigation_tools,
     caption_tools,
+    export_tools,
 )
 
 def test_document_tools_has_core_functions():
@@ -71,3 +72,8 @@ def test_caption_tools_has_core_functions():
     assert hasattr(caption_tools, 'insert_caption')
     assert hasattr(caption_tools, 'generate_list_of_figures')
     assert hasattr(caption_tools, 'generate_list_of_tables')
+    
+def test_export_tools_has_core_functions():
+    assert hasattr(export_tools, 'to_epub')
+    assert hasattr(export_tools, 'to_pdf')
+    assert hasattr(export_tools, 'set_core_properties')

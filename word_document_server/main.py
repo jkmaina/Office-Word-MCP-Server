@@ -20,6 +20,7 @@ from word_document_server.tools import (
     book_tools,
     navigation_tools,
     caption_tools,
+    export_tools,
 )
 
 
@@ -90,6 +91,10 @@ def register_tools():
     mcp.tool()(caption_tools.insert_caption)
     mcp.tool()(caption_tools.generate_list_of_figures)
     mcp.tool()(caption_tools.generate_list_of_tables)
+    # Export tools (Phase 6)
+    mcp.tool()(export_tools.to_epub)
+    mcp.tool()(export_tools.to_pdf)
+    mcp.tool()(export_tools.set_core_properties)
 
 
 def run_server():
