@@ -11,6 +11,8 @@ from word_document_server.tools import (
     header_tools,
     chapter_tools,
     code_tools,
+    book_tools,
+    navigation_tools,
 )
 
 def test_document_tools_has_core_functions():
@@ -53,3 +55,11 @@ def test_chapter_tools_has_core_functions():
     
 def test_code_tools_has_core_functions():
     assert hasattr(code_tools, 'add_code_block')
+    
+def test_book_tools_has_core_functions():
+    assert hasattr(book_tools, 'add_title_page')
+    assert hasattr(book_tools, 'add_copyright_page')
+    assert hasattr(book_tools, 'add_front_matter')
+
+def test_navigation_tools_has_core_functions():
+    assert hasattr(navigation_tools, 'insert_toc_placeholder')

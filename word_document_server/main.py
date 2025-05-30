@@ -17,6 +17,8 @@ from word_document_server.tools import (
     header_tools,
     chapter_tools,
     code_tools,
+    book_tools,
+    navigation_tools,
 )
 
 
@@ -74,6 +76,12 @@ def register_tools():
     mcp.tool()(chapter_tools.new_chapter)
     # Code block tools (Phase 3)
     mcp.tool()(code_tools.add_code_block)
+    # Front/Back matter tools (Phase 4)
+    mcp.tool()(book_tools.add_title_page)
+    mcp.tool()(book_tools.add_copyright_page)
+    mcp.tool()(book_tools.add_front_matter)
+    # Navigation tools (Phase 4)
+    mcp.tool()(navigation_tools.insert_toc_placeholder)
 
 
 def run_server():

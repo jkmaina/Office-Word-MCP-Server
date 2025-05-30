@@ -2,9 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.0] - 2025-05-29
+### Added
+- Book & front-matter tools (Phase 4):
+  - `add_title_page(filename, title, subtitle, author, date)` to create a standalone title page doc.
+  - `add_copyright_page(filename, text)` to append a copyright/legal page.
+  - `add_front_matter(filename, section, text)` to insert preface/acknowledgment/dedication sections.
+- Navigation tools (Phase 4):
+  - `insert_toc_placeholder(filename, heading_style)` to inject a live TOC field placeholder.
+
 ## [1.5.0] - 2025-05-29
 ### Added
-- Code block insertion tool (Phase 3):
+Code block insertion tool (Phase 3):
   - `add_code_block(filename, code_text, language, style)` inserts a monospaced, shaded code block as a one-cell table.
 
 ## [1.4.0] - 2025-05-29
