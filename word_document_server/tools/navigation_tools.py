@@ -46,3 +46,74 @@ async def insert_toc_placeholder(
         return f"TOC placeholder inserted into {filename}"
     except Exception as e:
         return f"Failed to insert TOC placeholder: {e}"
+    
+async def bookmark(
+    filename: str,
+    bookmark_name: str,
+) -> str:
+    """Insert a bookmark at the start of the document for cross-referencing.
+
+    Args:
+        filename: Path to an existing Word document
+        bookmark_name: Name of the bookmark (must start with a letter)
+    """
+    filename = ensure_docx_extension(filename)
+    if not os.path.exists(filename):
+        return f"Document {filename} does not exist"
+    writable, err = check_file_writeable(filename)
+    if not writable:
+        return f"Cannot modify document: {err}"
+    try:
+        doc = Document(filename)
+        p = doc.paragraphs[0] if doc.paragraphs else doc.add_paragraph()
+        # Create bookmark start
+        start = OxmlElement('w:bookmarkStart')
+        start.set(qn('w:id'), '0')
+        start.set(qn('w:name'), bookmark_name)
+        # Create bookmark end
+        end = OxmlElement('w:bookmarkEnd')
+        end.set(qn('w:id'), '0')
+        # Insert elements
+        p._p.insert(0, start)
+        p._p.insert(1, end)
+        doc.save(filename)
+        return f"Bookmark '{bookmark_name}' added to {filename}"
+    except Exception as e:
+        return f"Failed to add bookmark: {e}"
+
+async def insert_hyperlink(
+    filename: str,
+    bookmark_name: str,
+    display_text: str,
+) -> str:
+    """Insert a hyperlink to a bookmark in the document.
+
+    Args:
+        filename: Path to an existing Word document
+        bookmark_name: Name of the target bookmark
+        display_text: Text to display for the hyperlink
+    """
+    filename = ensure_docx_extension(filename)
+    if not os.path.exists(filename):
+        return f"Document {filename} does not exist"
+    writable, err = check_file_writeable(filename)
+    if not writable:
+        return f"Cannot modify document: {err}"
+    try:
+        doc = Document(filename)
+        # Append hyperlink at end of document
+        p = doc.add_paragraph()
+        fld = OxmlElement('w:fldSimple')
+        # Internal link to bookmark
+        fld.set(qn('w:instr'), rf'HYPERLINK \l "{bookmark_name}"')
+        # Add display text child node
+        run = OxmlElement('w:r')
+        text = OxmlElement('w:t')
+        text.text = display_text
+        run.append(text)
+        fld.append(run)
+        p._p.append(fld)
+        doc.save(filename)
+        return f"Hyperlink to '{bookmark_name}' added as '{display_text}'"
+    except Exception as e:
+        return f"Failed to insert hyperlink: {e}"

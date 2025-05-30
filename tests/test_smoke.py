@@ -13,6 +13,7 @@ from word_document_server.tools import (
     code_tools,
     book_tools,
     navigation_tools,
+    caption_tools,
 )
 
 def test_document_tools_has_core_functions():
@@ -63,3 +64,10 @@ def test_book_tools_has_core_functions():
 
 def test_navigation_tools_has_core_functions():
     assert hasattr(navigation_tools, 'insert_toc_placeholder')
+    assert hasattr(navigation_tools, 'bookmark')
+    assert hasattr(navigation_tools, 'insert_hyperlink')
+
+def test_caption_tools_has_core_functions():
+    assert hasattr(caption_tools, 'insert_caption')
+    assert hasattr(caption_tools, 'generate_list_of_figures')
+    assert hasattr(caption_tools, 'generate_list_of_tables')

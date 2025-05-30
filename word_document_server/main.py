@@ -19,6 +19,7 @@ from word_document_server.tools import (
     code_tools,
     book_tools,
     navigation_tools,
+    caption_tools,
 )
 
 
@@ -82,6 +83,13 @@ def register_tools():
     mcp.tool()(book_tools.add_front_matter)
     # Navigation tools (Phase 4)
     mcp.tool()(navigation_tools.insert_toc_placeholder)
+    # Cross-reference tools (Phase 5)
+    mcp.tool()(navigation_tools.bookmark)
+    mcp.tool()(navigation_tools.insert_hyperlink)
+    # Caption and list tools (Phase 5)
+    mcp.tool()(caption_tools.insert_caption)
+    mcp.tool()(caption_tools.generate_list_of_figures)
+    mcp.tool()(caption_tools.generate_list_of_tables)
 
 
 def run_server():

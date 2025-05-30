@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.0] - 2025-05-29
+### Added
+- Cross-reference tools (Phase 5):
+  - `bookmark(filename, bookmark_name)` to mark a location for hyperlinking.
+  - `insert_hyperlink(filename, bookmark_name, display_text)` to add an internal link to a bookmark.
+- Caption & list-generation tools (Phase 5):
+  - `insert_caption(filename, object_type, text, style)` to insert numbered captions for figures/tables.
+  - `generate_list_of_figures(filename, heading_style)` to insert a List of Figures field.
+  - `generate_list_of_tables(filename, heading_style)` to insert a List of Tables field.
+
 ## [1.6.0] - 2025-05-29
 ### Added
-- Book & front-matter tools (Phase 4):
+Book & front-matter tools (Phase 4):
   - `add_title_page(filename, title, subtitle, author, date)` to create a standalone title page doc.
   - `add_copyright_page(filename, text)` to append a copyright/legal page.
   - `add_front_matter(filename, section, text)` to insert preface/acknowledgment/dedication sections.
-- Navigation tools (Phase 4):
+Navigation tools (Phase 4):
   - `insert_toc_placeholder(filename, heading_style)` to inject a live TOC field placeholder.
 
 ## [1.5.0] - 2025-05-29
