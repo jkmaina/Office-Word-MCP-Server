@@ -21,6 +21,8 @@ from word_document_server.tools import (
     navigation_tools,
     caption_tools,
     export_tools,
+    qa_tools,
+    build_tools,
 )
 
 
@@ -95,6 +97,12 @@ def register_tools():
     mcp.tool()(export_tools.to_epub)
     mcp.tool()(export_tools.to_pdf)
     mcp.tool()(export_tools.set_core_properties)
+    # QA tools (Phase 7)
+    mcp.tool()(qa_tools.extract_text)
+    mcp.tool()(qa_tools.check_sentence_length)
+    mcp.tool()(qa_tools.check_passive_voice)
+    # Build orchestrator (Phase 7)
+    mcp.tool()(build_tools.build_book)
 
 
 def run_server():

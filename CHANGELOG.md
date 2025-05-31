@@ -2,9 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.9.0] - 2025-05-29
+### Added
+- QA & Automation tools (Phase 7):
+  - `extract_text(filename)` to pull all paragraphs as plain text for linters.
+  - `check_sentence_length(filename, max_chars)` to report sentences exceeding a given length.
+  - `check_passive_voice(filename)` to detect simple passive-voice patterns.
+  - `build_book(manifest_path)` to run a JSON-driven pipeline of tools and return a step-by-step report.
+
 ## [1.8.0] - 2025-05-29
 ### Added
-- Export tools (Phase 6):
+Export tools (Phase 6):
   - `to_epub(filename, output_filename, metadata, toc)` to convert .docx to EPUB via Pandoc.
   - `to_pdf(filename, output_filename, pdf_engine)` to convert .docx to PDF via Pandoc.
   - `set_core_properties(filename, title, author, subject, keywords)` to inject document metadata.

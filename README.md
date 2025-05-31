@@ -277,6 +277,15 @@ to_pdf(filename, output_filename=None, pdf_engine='xelatex')
 set_core_properties(filename, title=None, author=None, subject=None, keywords=None)
 ```
 
+### QA & Automation
+
+```python
+extract_text(filename)
+check_sentence_length(filename, max_chars=120)
+check_passive_voice(filename)
+build_book(manifest_path)
+```
+
 ## Troubleshooting
 
 ### Common Issues

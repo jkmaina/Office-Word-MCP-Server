@@ -15,6 +15,8 @@ from word_document_server.tools import (
     navigation_tools,
     caption_tools,
     export_tools,
+    qa_tools,
+    build_tools,
 )
 
 def test_document_tools_has_core_functions():
@@ -77,3 +79,11 @@ def test_export_tools_has_core_functions():
     assert hasattr(export_tools, 'to_epub')
     assert hasattr(export_tools, 'to_pdf')
     assert hasattr(export_tools, 'set_core_properties')
+    
+def test_qa_tools_has_core_functions():
+    assert hasattr(qa_tools, 'extract_text')
+    assert hasattr(qa_tools, 'check_sentence_length')
+    assert hasattr(qa_tools, 'check_passive_voice')
+
+def test_build_tools_has_core_functions():
+    assert hasattr(build_tools, 'build_book')
